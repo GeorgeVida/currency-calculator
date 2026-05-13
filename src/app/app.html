@@ -1,0 +1,25 @@
+<div class="container">
+
+  <h1>💱 Currency Calculator</h1>
+
+  <input type="number" [(ngModel)]="amount">
+
+  <select [(ngModel)]="from">
+  <option *ngFor="let c of rates | keyvalue" [value]="c.key">
+    {{ c.key }}
+  </option>
+</select>
+
+<select [(ngModel)]="to">
+  <option *ngFor="let c of rates | keyvalue" [value]="c.key">
+    {{ c.key }}
+  </option>
+</select>
+
+  <button (click)="convert()">Convert</button>
+
+  <h2 *ngIf="result !== null">
+    {{ result | number:'1.2-2' }}
+  </h2>
+
+</div>
